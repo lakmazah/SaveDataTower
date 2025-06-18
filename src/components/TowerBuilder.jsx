@@ -123,14 +123,22 @@ const TowerBuilder = () => {
           return (
             <div
               key={`flag-${i}`}
-              className="absolute left-[calc(50%+70px)] bg-yellow-300 text-black px-2 py-1 text-xs rounded shadow flex items-center space-x-1"
-              style={{ bottom: fromBottom }}
+              className="absolute left-[calc(50%+70px)] bg-yellow-300 text-black rounded shadow flex items-center space-x-1"
+              style={{
+                bottom: fromBottom,
+                height: layerHeight * 0.8,
+                padding: `${layerHeight * 0.1}px ${layerHeight * 0.3}px`,
+                fontSize: layerHeight * 0.3
+              }}
             >
               {badgeIndex <= 12 && (
                 <img
                   src={`/img/badge_${badgeIndex}.png`}
                   alt={`Badge ${badgeIndex}`}
-                  className="w-20 h-20"
+                  style={{
+                    height: layerHeight * 0.6,
+                    width: layerHeight * 0.6
+                  }}
                 />
               )}
               <span>{labelCount}</span>
