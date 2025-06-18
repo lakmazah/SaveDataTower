@@ -118,14 +118,22 @@ const TowerBuilder = () => {
         {[...Array(totalLayers)].map((_, i) => {
           const fromBottom = (i + 1) * layerHeight;
           const labelCount = (i + 1) * blocksPerTier;
+          const badgeIndex = i + 1;
 
           return (
             <div
               key={`flag-${i}`}
-              className="absolute left-[calc(50%+70px)] bg-yellow-300 text-black px-2 py-1 text-xs rounded shadow"
+              className="absolute left-[calc(50%+70px)] bg-yellow-300 text-black px-2 py-1 text-xs rounded shadow flex items-center space-x-1"
               style={{ bottom: fromBottom }}
             >
-              {labelCount}
+              {badgeIndex <= 12 && (
+                <img
+                  src={`/img/badge_${badgeIndex}.png`}
+                  alt={`Badge ${badgeIndex}`}
+                  className="w-20 h-20"
+                />
+              )}
+              <span>{labelCount}</span>
             </div>
           );
         })}
